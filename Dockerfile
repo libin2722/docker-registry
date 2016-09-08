@@ -2,18 +2,12 @@
 # MAINTAINER        Terry.Li<libin2722@sohu.com>
 # DOCKER-VERSION    1.12.1
 #
-# Dockerizing CentOS7: Dockerfile for building CentOS images
+# Dockerizing  Registry v2.x: Dockerfile for building Registry images
 #
-# docker run -d -p 80:80 --name nginx -v /opt/software/docker/docker-nginx/nginx.conf:/etc/nginx/nginx.conf daocloud.io/libin2722/nginx
+# docker run -d -p 5000:5000 --name registry -v /opt/software/docker/registries:/var/lib/registry daocloud.io/libin2722/registry
 #
-FROM       daocloud.io/libin2722/centos:latest
+FROM       registry:latest
 MAINTAINER Terry.Li,<libin2722@sohu.com>
 
-RUN yum install -y httpd nginx
-
-RUN htpasswd -c /etc/nginx/docker-registry.htpasswd terry 111111
-
-EXPOSE 80
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+EXPOSE 500
 

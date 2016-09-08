@@ -9,5 +9,5 @@
 FROM       registry:latest
 MAINTAINER Terry.Li,<libin2722@sohu.com>
 
-EXPOSE 500
+EXPOSE 5000
 
